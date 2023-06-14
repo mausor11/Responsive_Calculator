@@ -1,0 +1,46 @@
+.container {
+    -fx-background-color: #222222;
+}
+.onOffSwitch {
+    -fx-fill: #61c28d;
+}
+
+.upText {
+    -fx-text-fill: #61c28d;
+}
+
+.scoreField {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.scoreField .content {
+    -fx-background-color: #333333;
+    -fx-background-radius: 0;
+    -fx-border-width: 2;
+    -fx-border-color: #61c28d;
+    -fx-border-radius: 0;
+}
+.CalcButton {
+    -fx-background-color: #333333;
+    -fx-background-radius: 15;
+    -fx-text-fill: white;
+    -fx-text-alignment: left;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+.CalcButtonEq {
+    -fx-background-color: #444444;
+    -fx-background-radius: 15;
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+#equals {
+    -fx-background-color: #61c28d;
+}
+#backButton {
+    -fx-background-color: #61c28d;
+}
