@@ -171,19 +171,45 @@ public class MainControllers {
 
     public void equalsListener(ActionEvent actionEvent) {
         if(!isEquation) {
-            waitingScore.setText(scoreField.getText() + "=");
-            isEquation = true;
+            if(whatPart == 1) {
+                waitingScore.setText(firstPart + "" + sign + "" + scoreField.getText() + "=");
+                if(sign == '+') {
+                    int secondPart = Integer.parseInt(scoreField.getText());
+                    int q = firstPart + secondPart;
+                    scoreField.setText(q + "");
+                } else if(sign == '-') {
+                    int secondPart = Integer.parseInt(scoreField.getText());
+                    int q = firstPart - secondPart;
+                    scoreField.setText(q + "");
+                } else if(sign == '*') {
+                    int secondPart = Integer.parseInt(scoreField.getText());
+                    int q = firstPart * secondPart;
+                    scoreField.setText(q + "");
+                } else if(sign == '/') {
+                    int secondPart = Integer.parseInt(scoreField.getText());
+                    int q = firstPart / secondPart;
+                    scoreField.setText(q + "");
+                }
+                whatPart = 0;
+            } else {
+                waitingScore.setText(scoreField.getText() + "=");
+                isEquation = true;
+            }
         }
     }
 
     public void cListener(ActionEvent actionEvent) {
         scoreField.setText("0");
         waitingScore.setText("");
+        whatPart=0;
     }
 
     public void plusListener(ActionEvent actionEvent) {
         sign = '+';
         isEquation = true;
+        if(whatPart == 0) {
+            whatPart++;
+        }
         firstPart = Integer.parseInt(scoreField.getText());
         waitingScore.setText(scoreField.getText() + sign);
     }
@@ -191,6 +217,9 @@ public class MainControllers {
     public void minusListener(ActionEvent actionEvent) {
         sign = '-';
         isEquation = true;
+        if(whatPart == 0) {
+            whatPart++;
+        }
         firstPart = Integer.parseInt(scoreField.getText());
         waitingScore.setText(scoreField.getText() + sign);
     }
@@ -198,6 +227,9 @@ public class MainControllers {
     public void multiListener(ActionEvent actionEvent) {
         sign = '*';
         isEquation = true;
+        if(whatPart == 0) {
+            whatPart++;
+        }
         firstPart = Integer.parseInt(scoreField.getText());
         waitingScore.setText(scoreField.getText() + sign);
     }
@@ -205,12 +237,16 @@ public class MainControllers {
     public void divideListener(ActionEvent actionEvent) {
         sign = '/';
         isEquation = true;
+        if(whatPart == 0) {
+            whatPart++;
+        }
         firstPart = Integer.parseInt(scoreField.getText());
         waitingScore.setText(scoreField.getText() + sign);
     }
     char sign;
     boolean isEquation = false;
     int firstPart;
+    int whatPart = 0;
     enum Mode{LIGHT, DARK}
     Mode actualMode = Mode.DARK;
     @FXML
