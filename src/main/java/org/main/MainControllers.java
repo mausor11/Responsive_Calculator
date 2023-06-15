@@ -168,7 +168,7 @@ public class MainControllers {
 
 
     }
-
+    //do ogarniecia
     public void equalsListener(ActionEvent actionEvent) {
         if(!isEquation) {
             if(whatPart == 1) {
