@@ -1,10 +1,8 @@
 package org.main;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,13 +18,13 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
 
         stage.setMinWidth(400);
-        stage.setMinHeight(566);
+        stage.setMinHeight(700);
 
         stage.setTitle("Calculator");
         Scene scene = new Scene(new FXMLLoader(Main.class.getResource("Main.fxml")).load());
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
         stage.setScene(scene);
-        stage.setWidth(432);
+        stage.setWidth(505);
         stage.setHeight(700);
         stage.show();
 

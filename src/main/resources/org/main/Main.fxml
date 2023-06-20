@@ -87,14 +87,14 @@
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin></Button>
-            <Button id="backButton" fx:id="buttonBack" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="149.0" prefWidth="192.0" styleClass="CalcButton" text="←" GridPane.columnIndex="2" GridPane.columnSpan="2">
+            <Button id="backButton" fx:id="buttonBack" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#backListener" mnemonicParsing="false" prefHeight="149.0" prefWidth="192.0" styleClass="CalcButton" text="←" GridPane.columnIndex="2" GridPane.columnSpan="2">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button fx:id="buttonChange" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" styleClass="CalcButtonEq" text="+/-" GridPane.rowIndex="1">
+            <Button fx:id="buttonChange" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#changeListener" prefHeight="200.0" prefWidth="200.0" styleClass="CalcButtonEq" text="+/-" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin></Button>
@@ -154,7 +154,7 @@
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin></Button>
-            <Button fx:id="buttonDot" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="165.0" prefWidth="264.0" styleClass="CalcButton" text="." GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <Button fx:id="buttonDot" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#dotListener" prefHeight="165.0" prefWidth="264.0" styleClass="CalcButton" text="." GridPane.columnIndex="2" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin></Button>
@@ -162,17 +162,17 @@
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin></Button>
-            <Button fx:id="buttonRev" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="156.0" prefWidth="205.0" styleClass="CalcButtonEq" text="1/x" GridPane.columnIndex="1">
+            <Button fx:id="buttonRev" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#revListener" prefHeight="156.0" prefWidth="205.0" styleClass="CalcButtonEq" text="1/x" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="buttonPwr" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="177.0" prefWidth="235.0" styleClass="CalcButtonEq" text="x²" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="buttonPwr" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#powerListener" prefHeight="177.0" prefWidth="235.0" styleClass="CalcButtonEq" text="x²" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="buttonSqr" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="152.0" prefWidth="233.0" styleClass="CalcButtonEq" text="√" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="buttonSqr" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#sqrListener" prefHeight="152.0" prefWidth="233.0" styleClass="CalcButtonEq" text="√" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
