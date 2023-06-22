@@ -1,6 +1,8 @@
 package org.main;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -28,7 +30,7 @@ public class Main extends Application {
         stage.setHeight(700);
         stage.show();
 
-//        Scene scene1 = new Scene(new FXMLLoader(Main.class.getResource("Main2.fxml")).load());
+//        Scene scene1 = new Scene(new FXMLLoader(Main.class.getResource("Main.fxml")).load());
 //        scene1.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
 //
 //        stage.setScene(scene);
