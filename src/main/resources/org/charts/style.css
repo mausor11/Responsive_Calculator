@@ -1,0 +1,17 @@
+.container {
+    -fx-background-color: #222222;
+}
+
+.textCurrency {
+    -fx-text-alignment: center;
+    -fx-text-fill: #61c28d;
+    -fx-font-size: 25;
+    -fx-font-weight: bold;
+    -fx-padding: 10;
+}
+.menuButton {
+    -fx-background-color: transparent;
+    -fx-border-color: #61c28d;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
