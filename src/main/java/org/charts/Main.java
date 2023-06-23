@@ -26,52 +26,7 @@ public class Main extends Application {
         stage.setMinWidth(300);
         stage.setMinHeight(700);
         stage.setTitle("Calculator");
-
-//        Map<String,String> currency = Currency.getCurrencyTable();
-//        MenuButton menuCurrency = new MenuButton("Choose currency");
-//
-//        for(String curr : currency.keySet()) {
-//            MenuItem item = new MenuItem(curr);
-//            item.setOnAction(event -> {
-//                System.out.println(item.getText() + " " + currency.get(item.getText()));
-//                menuCurrency.setText(item.getText());
-//            });
-//            menuCurrency.getItems().add(item);
-//        }
-//
-//
-//
-        Map<String, String> currency = Currency.getCurrencyTable();
-
-//        Label title = new Label();
-//        title.setText("Currency");
-//        title.getStyleClass().add("textCurrency");
-//
-//        Label txt = new Label("Choose currency");
-//        txt.setStyle("-fx-text-fill: white; -fx-font-weight: bold;");
-//        menuCurrency.getStyleClass().add("menuButton");
-//        menuCurrency.setGraphic(txt);
-        for(String curr : currency.keySet()) {
-            MenuItem item = new MenuItem(curr);
-            item.setOnAction(event -> {
-                System.out.println(item.getText() + " " + currency.get(item.getText()));
-                menuCurrency.setText(item.getText());
-            });
-            menuCurrency.getItems().add(item);
-        }
-//        ListView<String> listCurrency = new ListView<>(FXCollections.observableArrayList(currency.keySet()));
-//        ScrollPane scrollPane = new ScrollPane();
-//        scrollPane.setContent(listCurrency);
-//        scrollPane.setFitToHeight(true);
-//        VBox vbox = new VBox(title, menuCurrency, listCurrency);
-//        vbox.getStyleClass().add("container");
-//        vbox.setFillWidth(true);
-//        vbox.setSpacing(10);
         Scene scene = new Scene(new FXMLLoader(Main.class.getResource("Charts.fxml")).load());
-
-
-
-
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
 
         stage.setScene(scene);
