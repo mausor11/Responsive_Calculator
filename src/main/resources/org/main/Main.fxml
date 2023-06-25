@@ -12,9 +12,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="container" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="566.0" minWidth="350.0" prefHeight="1080.0" prefWidth="475.0" styleClass="container" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.main.MainControllers">
+<VBox fx:id="container" minHeight="566.0" minWidth="350.0" prefHeight="1080.0" prefWidth="1920.0" styleClass="container" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.main.MainControllers">
    <children>
-      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="48.0" minWidth="435.0" prefHeight="48.0" prefWidth="435.0">
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="48.0" minWidth="435.0" prefHeight="48.0">
         <columnConstraints>
           <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="100.0" percentWidth="25.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="328.0" prefWidth="100.0" />
@@ -87,7 +87,7 @@
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin></Button>
-            <Button id="backButton" fx:id="buttonBack" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#backListener" mnemonicParsing="false" prefHeight="149.0" prefWidth="192.0" styleClass="CalcButton" text="←" GridPane.columnIndex="2" GridPane.columnSpan="2">
+            <Button id="backButton" fx:id="buttonBack" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#backListener" prefHeight="149.0" prefWidth="192.0" styleClass="CalcButton" text="←" GridPane.columnIndex="2" GridPane.columnSpan="2">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>

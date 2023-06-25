@@ -18,8 +18,9 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 public class MainControllers {
+    //todo: dodac update listy jak jest wynik
 
-
+    public static double multiplicity = 1;
     public void zeroListener(ActionEvent actionEvent) {
         if(isEquation) {
             scoreField.setText("0");
@@ -182,6 +183,7 @@ public class MainControllers {
                     DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
                     df.setMaximumFractionDigits(6);
                     scoreField.setText(df.format(q) + "");
+                    multiplicity = Double.parseDouble(df.format(q));
                 } else if(sign == '-') {
                     double secondPart = Double.parseDouble(scoreField.getText());
                     double firstPart = Double.parseDouble(this.firstPart);
@@ -189,6 +191,7 @@ public class MainControllers {
                     DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
                     df.setMaximumFractionDigits(6);
                     scoreField.setText(df.format(q) + "");
+                    multiplicity = Double.parseDouble(df.format(q));
                 } else if(sign == '*') {
                     double secondPart = Double.parseDouble(scoreField.getText());
                     double firstPart = Double.parseDouble(this.firstPart);
@@ -196,6 +199,7 @@ public class MainControllers {
                     DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
                     df.setMaximumFractionDigits(6);
                     scoreField.setText(df.format(q) + "");
+                    multiplicity = Double.parseDouble(df.format(q));
                 } else if(sign == '/') {
                     double secondPart = Double.parseDouble(scoreField.getText());
                     if(secondPart != 0) {
@@ -204,6 +208,7 @@ public class MainControllers {
                         DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
                         df.setMaximumFractionDigits(6);
                         scoreField.setText(df.format(q) + "");
+                        multiplicity = Double.parseDouble(df.format(q));
 
                     } else {
                         scoreField.setText("Can't divide by 0");

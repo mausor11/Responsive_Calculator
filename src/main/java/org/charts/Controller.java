@@ -2,12 +2,17 @@ package org.charts;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollPane;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 import java.util.Map;
+
+import static org.main.MainControllers.multiplicity;
 
 public class Controller {
     @FXML
@@ -16,17 +21,23 @@ public class Controller {
     public ListView<Object> listCurrency;
     @FXML
     public ScrollPane scrollPane;
+    private double transitional;
     public void initialize() {
+
         Map<String, String> currency = Currency.getCurrencyTable();
         for(String curr : currency.keySet()) {
             MenuItem item = new MenuItem(curr);
             item.setOnAction(event -> {
-                System.out.println(item.getText() + " " + currency.get(item.getText()));
+                double c = Double.parseDouble(currency.get(item.getText()));
+                transitional = 1/c;
+                UpdateList.updateList(listCurrency,transitional, multiplicity);
                 menuCurrency.setText(item.getText());
             });
             menuCurrency.getItems().add(item);
         }
-        listCurrency.getItems().addAll(FXCollections.observableArrayList(currency.keySet()));
+        UpdateList.updateList(listCurrency,1, multiplicity);
+
+
     }
 
 }
