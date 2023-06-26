@@ -25,7 +25,6 @@ public class Currency {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        System.out.println("updated");
         return currency;
     }
 

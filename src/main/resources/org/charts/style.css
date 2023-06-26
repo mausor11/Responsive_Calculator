@@ -38,3 +38,6 @@
     -fx-spacing: 40;
     -fx-pref-height: 60;
 }
+.hyperlink {
+    -fx-text-fill: #757575;
+}

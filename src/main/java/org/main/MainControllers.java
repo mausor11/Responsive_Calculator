@@ -182,10 +182,11 @@ public class MainControllers {
                     DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
                     df.setMaximumFractionDigits(6);
                     scoreField.setText(df.format(q) + "");
-                    if(!isPlus) {
+                    if(q > 0) {
                         UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
                         UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
                     }
+
                 } else if(sign == '-') {
                     double secondPart = Double.parseDouble(scoreField.getText());
                     double firstPart = Double.parseDouble(this.firstPart);
@@ -193,10 +194,11 @@ public class MainControllers {
                     DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
                     df.setMaximumFractionDigits(6);
                     scoreField.setText(df.format(q) + "");
-                    if(!isPlus) {
+                    if(q > 0) {
                         UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
                         UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
                     }
+
                 } else if(sign == '*') {
                     double secondPart = Double.parseDouble(scoreField.getText());
                     double firstPart = Double.parseDouble(this.firstPart);
@@ -204,10 +206,12 @@ public class MainControllers {
                     DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
                     df.setMaximumFractionDigits(6);
                     scoreField.setText(df.format(q) + "");
-                    if(!isPlus) {
+                    if(q > 0) {
                         UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
                         UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
                     }
+
+
 
                 } else if(sign == '÷') {
                     double secondPart = Double.parseDouble(scoreField.getText());
@@ -217,10 +221,11 @@ public class MainControllers {
                         DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
                         df.setMaximumFractionDigits(6);
                         scoreField.setText(df.format(q) + "");
-                        if(!isPlus) {
+                        if(q > 0) {
                             UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
                             UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
                         }
+
 
                     } else {
                         scoreField.setText("Can't divide by 0");
@@ -230,8 +235,12 @@ public class MainControllers {
                 isEquation = true;
             } else {
                 waitingScore.setText(scoreField.getText() + "=");
-                UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
-                UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                Double tmp = Double.parseDouble(scoreField.getText());
+                if(tmp > 0) {
+                    UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
+                    UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                }
+
                 isEquation = true;
             }
         }
@@ -262,10 +271,23 @@ public class MainControllers {
         String tmp = scoreField.getText();
         if(tmp.length() > 1) {
             tmp = tmp.substring(0, scoreField.getText().length() - 1);
-            scoreField.setText(tmp);
+            if(tmp.equals("-")) {
+                scoreField.setText("0");
+            } else {
+                scoreField.setText(tmp);
+            }
         } else {
             scoreField.setText("0");
         }
+        DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+        df.setMaximumFractionDigits(6);
+        double t = Double.parseDouble(scoreField.getText());
+        if(t > 0 ) {
+            UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
+            UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+        }
+
+
     }
     public void revListener(ActionEvent actionEvent) {
         isPlus = true;
@@ -278,6 +300,10 @@ public class MainControllers {
             DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
             df.setMaximumFractionDigits(6);
             scoreField.setText(df.format(tmp) + "");
+            if(tmp > 0) {
+                UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
+                UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+            }
         }
 
 
@@ -323,6 +349,10 @@ public class MainControllers {
         DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
         df.setMaximumFractionDigits(6);
         scoreField.setText(df.format(tmp) + "");
+        if(tmp > 0) {
+            UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
+            UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+        }
 
     }
     public void sqrListener(ActionEvent actionEvent) {
@@ -333,6 +363,10 @@ public class MainControllers {
         DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
         df.setMaximumFractionDigits(6);
         scoreField.setText(df.format(tmp) + "");
+        if(tmp > 0) {
+            UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
+            UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+        }
     }
 
     public void divideListener(ActionEvent actionEvent) {

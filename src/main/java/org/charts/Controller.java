@@ -44,12 +44,29 @@ public class Controller {
             });
             menuCurrency.getItems().add(item);
         }
+        MenuItem itemusd = new MenuItem("United States Dollar");
+        itemusd.setOnAction(event -> {
+            UpdateList.updateList(listCurrency,1, multiplicity);
+            menuCurrency.setText(itemusd.getText());
+        });
+        menuCurrency.getItems().add(itemusd);
         UpdateList.updateList(listCurrency,1, multiplicity);
-
-
     }
 
     public void changeUpdate(ActionEvent actionEvent) {
-        initialize();
+        transitional = UpdateList.transitional;
+        multiplicity = UpdateList.multiplicity;
+        ZonedDateTime zonedDateTime = ZonedDateTime.now();
+        hyperlink.setText("Last update: " + zonedDateTime.format(DateTimeFormatter.ofPattern("HH:mm z")));
+        Map<String, String> currency = Currency.getCurrencyTable();
+        for(String curr : currency.keySet()) {
+            MenuItem item = new MenuItem(curr);
+            item.setOnAction(event -> {
+                UpdateList.updateList(listCurrency,transitional, multiplicity);
+                menuCurrency.setText(item.getText());
+            });
+            menuCurrency.getItems().add(item);
+        }
+        UpdateList.updateList(listCurrency,transitional, multiplicity);
     }
 }

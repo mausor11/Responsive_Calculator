@@ -24,7 +24,7 @@
             <Insets bottom="10.0" top="10.0" />
          </padding>
       </MenuButton>
-      <Hyperlink fx:id="hyperlink" alignment="CENTER" onAction="#changeUpdate" prefHeight="23.0" prefWidth="161.0" text="Hyperlink" />
+      <Hyperlink fx:id="hyperlink" styleClass="hyperlink" alignment="CENTER" onAction="#changeUpdate" prefHeight="23.0" prefWidth="161.0" text="Hyperlink" />
       <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" prefHeight="1080.0" prefWidth="300.0" styleClass="scrollPane">
          <VBox.margin>
             <Insets top="10.0" />
