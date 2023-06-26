@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
@@ -8,8 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="300" minHeight="-Infinity" minWidth="300" prefHeight="1080.0" prefWidth="300" styleClass="container" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.charts.Controller">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="300" minHeight="566.0" minWidth="300" prefWidth="300" styleClass="container" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.charts.Controller">
    <children>
       <Label contentDisplay="CENTER" styleClass="textCurrency" text="Currency">
          <font>
@@ -24,12 +24,13 @@
             <Insets bottom="10.0" top="10.0" />
          </padding>
       </MenuButton>
-      <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" prefHeight="1034.0" prefWidth="300.0" styleClass="scrollPane">
+      <Hyperlink fx:id="hyperlink" alignment="CENTER" onAction="#changeUpdate" prefHeight="23.0" prefWidth="161.0" text="Hyperlink" />
+      <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" prefHeight="1080.0" prefWidth="300.0" styleClass="scrollPane">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>
          <content>
-            <ListView fx:id="listCurrency" prefHeight="1172.0" prefWidth="300.0" styleClass="listCurrency" />
+            <ListView fx:id="listCurrency" prefHeight="1172.0" prefWidth="298.0" styleClass="listCurrency" />
          </content>
       </ScrollPane>
    </children>

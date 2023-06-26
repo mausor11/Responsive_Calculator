@@ -1,6 +1,5 @@
 package org.charts;
 
-import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
@@ -11,6 +10,9 @@ import java.util.Locale;
 import java.util.Map;
 
 public class UpdateList {
+    public static double multiplicity = 1;
+    public static ListView<Object> instance;
+    public static double transitional;
     public static ListView<Object> updateList(ListView<Object> listCurrency, double transitional, double muliplicity) {
         Map<String, String> currency = Currency.getCurrencyTable();
         listCurrency.getItems().clear();
@@ -23,7 +25,7 @@ public class UpdateList {
         Label label1 = new Label();
         DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
         df.setMaximumFractionDigits(4);
-        label1.setText(df.format(transitional) + "");
+        label1.setText(df.format(transitional*multiplicity) + "");
         label1.setStyle("-fx-text-fill:  white; -fx-font-size: 15");
         label1.setPrefWidth(80);
         hboxUSD.getChildren().addAll(label, label1);
@@ -47,6 +49,9 @@ public class UpdateList {
             hbox.getChildren().addAll(label, label1);
             listCurrency.getItems().add(hbox);
         }
+        UpdateList.multiplicity = multiplicity;
+        UpdateList.instance = listCurrency;
+        UpdateList.transitional = transitional;
         return listCurrency;
     }
 }

@@ -1,6 +1,7 @@
 package org.charts;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -9,6 +10,11 @@ import javafx.scene.layout.HBox;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Map;
 
@@ -21,9 +27,12 @@ public class Controller {
     public ListView<Object> listCurrency;
     @FXML
     public ScrollPane scrollPane;
+    @FXML
+    public Hyperlink hyperlink;
     private double transitional;
     public void initialize() {
-
+        ZonedDateTime zonedDateTime = ZonedDateTime.now();
+        hyperlink.setText("Last update: " + zonedDateTime.format(DateTimeFormatter.ofPattern("HH:mm z")));
         Map<String, String> currency = Currency.getCurrencyTable();
         for(String curr : currency.keySet()) {
             MenuItem item = new MenuItem(curr);
@@ -40,4 +49,7 @@ public class Controller {
 
     }
 
+    public void changeUpdate(ActionEvent actionEvent) {
+        initialize();
+    }
 }

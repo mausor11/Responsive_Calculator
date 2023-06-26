@@ -6,10 +6,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Main extends Application {
@@ -26,7 +28,6 @@ public class Main extends Application {
         stage.setTitle("Calculator");
         Scene scene = new Scene(new FXMLLoader(Main.class.getResource("Main.fxml")).load());
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
-//        stage.setScene(scene);
         stage.setWidth(505);
         stage.setHeight(700);
         stage.show();
@@ -44,11 +45,9 @@ public class Main extends Application {
                 if(newValue.doubleValue() > 1000) {
                     hbox.getChildren().clear();
                     hbox.getChildren().addAll(scene.getRoot(), scene1.getRoot());
-//                    stage.setScene(scene1);
                 } else {
                     hbox.getChildren().clear();
                     hbox.getChildren().add(scene.getRoot());
-//                    stage.setScene(scene);
                 }
             }
         });

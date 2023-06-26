@@ -12,14 +12,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import org.charts.UpdateList;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 public class MainControllers {
-    //todo: dodac update listy jak jest wynik
-
     public static double multiplicity = 1;
     public void zeroListener(ActionEvent actionEvent) {
         if(isEquation) {
@@ -183,7 +182,10 @@ public class MainControllers {
                     DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
                     df.setMaximumFractionDigits(6);
                     scoreField.setText(df.format(q) + "");
-                    multiplicity = Double.parseDouble(df.format(q));
+                    if(!isPlus) {
+                        UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
+                        UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                    }
                 } else if(sign == '-') {
                     double secondPart = Double.parseDouble(scoreField.getText());
                     double firstPart = Double.parseDouble(this.firstPart);
@@ -191,7 +193,10 @@ public class MainControllers {
                     DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
                     df.setMaximumFractionDigits(6);
                     scoreField.setText(df.format(q) + "");
-                    multiplicity = Double.parseDouble(df.format(q));
+                    if(!isPlus) {
+                        UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
+                        UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                    }
                 } else if(sign == '*') {
                     double secondPart = Double.parseDouble(scoreField.getText());
                     double firstPart = Double.parseDouble(this.firstPart);
@@ -199,8 +204,12 @@ public class MainControllers {
                     DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
                     df.setMaximumFractionDigits(6);
                     scoreField.setText(df.format(q) + "");
-                    multiplicity = Double.parseDouble(df.format(q));
-                } else if(sign == '/') {
+                    if(!isPlus) {
+                        UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
+                        UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                    }
+
+                } else if(sign == '÷') {
                     double secondPart = Double.parseDouble(scoreField.getText());
                     if(secondPart != 0) {
                         double firstPart = Double.parseDouble(this.firstPart);
@@ -208,17 +217,21 @@ public class MainControllers {
                         DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
                         df.setMaximumFractionDigits(6);
                         scoreField.setText(df.format(q) + "");
-                        multiplicity = Double.parseDouble(df.format(q));
+                        if(!isPlus) {
+                            UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
+                            UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                        }
 
                     } else {
                         scoreField.setText("Can't divide by 0");
                     }
-
                 }
                 whatPart = 0;
                 isEquation = true;
             } else {
                 waitingScore.setText(scoreField.getText() + "=");
+                UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
+                UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
                 isEquation = true;
             }
         }
