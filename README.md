@@ -21,9 +21,3 @@ To run the application go to <b>"app"</b> folder and run the <b>Calculator.jar</
 * Java JDK 19.0.2.
 * JSoup (for Web Scraping)
 
-# Screenshots
-<div>
-    <img src="media/DarkMode.jpg">
-    <img src="media/LightMode.jpg">
-</div>
-
