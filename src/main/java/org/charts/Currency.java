@@ -23,7 +23,7 @@ public class Currency {
                 }
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
+            currency = null;
         }
         return currency;
     }

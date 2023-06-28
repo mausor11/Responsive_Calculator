@@ -6,12 +6,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import org.charts.Controller;
 import org.charts.UpdateList;
 
 import java.text.DecimalFormat;
@@ -403,6 +405,7 @@ public class MainControllers {
 
 
     enum Mode{LIGHT, DARK}
+    public static Label ModeType = new Label("dark");
     Mode actualMode = Mode.DARK;
     @FXML
     public Label scoreField;
@@ -468,9 +471,9 @@ public class MainControllers {
 
             FillTransition fillTransition = new FillTransition(Duration.millis(100), onOffSwitch);
             FillTransition fillTransition2 = new FillTransition(Duration.millis(100), onOffCircle);
-
+            MainControllers.ModeType.setText("light");
             translateTransition.setToX(-onOffCircle.getRadius()*2);
-            container.setStyle("-fx-background-color: #d1e8db");
+            container.lookup(".container").setStyle("-fx-background-color: #d1e8db");
             upText.setStyle("-fx-text-fill: #439f6d");
             scoreField.lookup(".scoreField").setStyle("-fx-background-color: #e8ffe8; -fx-text-fill: #333333");
             waitingScore.lookup(".waitingScore").setStyle("-fx-background-color: #e8ffe8; -fx-text-fill: #333333");
@@ -496,6 +499,7 @@ public class MainControllers {
             buttonMulti.lookup(".CalcButtonEq").setStyle("-fx-background-color: #dcfcdc;; -fx-text-fill: #333333");
             buttonSqr.lookup(".CalcButtonEq").setStyle("-fx-background-color: #dcfcdc;; -fx-text-fill: #333333");
             buttonPwr.lookup(".CalcButtonEq").setStyle("-fx-background-color: #dcfcdc;; -fx-text-fill: #333333");
+
             fillTransition.setFromValue(Color.web("#61c28d"));
             fillTransition2.setFromValue(Color.web("#c9ecd9"));
 
@@ -513,6 +517,7 @@ public class MainControllers {
             actualMode = Mode.LIGHT;
         } else {
             TranslateTransition translateTransition = new TranslateTransition(Duration.millis(100), onOffCircle);
+            MainControllers.ModeType.setText("dark");
 
             FillTransition fillTransition = new FillTransition(Duration.millis(100), onOffSwitch);
             FillTransition fillTransition2 = new FillTransition(Duration.millis(100), onOffCircle);

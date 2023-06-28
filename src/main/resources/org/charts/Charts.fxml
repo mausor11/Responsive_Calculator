@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="300" minHeight="566.0" minWidth="300" prefWidth="300" styleClass="container" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.charts.Controller">
+<VBox fx:id="container" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="300" minHeight="566.0" minWidth="300" prefWidth="300" styleClass="container" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.charts.Controller">
    <children>
       <Label contentDisplay="CENTER" styleClass="textCurrency" text="Currency">
          <font>

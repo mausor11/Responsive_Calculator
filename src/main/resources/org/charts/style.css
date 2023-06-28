@@ -20,9 +20,6 @@
 .scrollPane .scroll-bar {
     -fx-background-color: #222222;
 }
-.scrollPane > .scroll-bar:vertical {
-    -fx-background-color: red;
-}
 .menuButton {
     -fx-background-color: transparent;
     -fx-border-color: #61c28d;

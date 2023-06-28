@@ -1,21 +1,16 @@
 package org.charts;
 
-import javafx.collections.FXCollections;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import org.main.MainControllers;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 import java.util.Map;
 
 import static org.main.MainControllers.multiplicity;
@@ -29,28 +24,46 @@ public class Controller {
     public ScrollPane scrollPane;
     @FXML
     public Hyperlink hyperlink;
+    @FXML
+    public VBox container;
     private double transitional;
     public void initialize() {
         ZonedDateTime zonedDateTime = ZonedDateTime.now();
         hyperlink.setText("Last update: " + zonedDateTime.format(DateTimeFormatter.ofPattern("HH:mm z")));
         Map<String, String> currency = Currency.getCurrencyTable();
-        for(String curr : currency.keySet()) {
-            MenuItem item = new MenuItem(curr);
-            item.setOnAction(event -> {
-                double c = Double.parseDouble(currency.get(item.getText()));
-                transitional = 1/c;
-                UpdateList.updateList(listCurrency,transitional, multiplicity);
-                menuCurrency.setText(item.getText());
+        if(currency != null) {
+            for(String curr : currency.keySet()) {
+                MenuItem item = new MenuItem(curr);
+                item.setOnAction(event -> {
+                    double c = Double.parseDouble(currency.get(item.getText()));
+                    transitional = 1/c;
+                    UpdateList.updateList(listCurrency,transitional, multiplicity);
+                    menuCurrency.setText(item.getText());
+                });
+                menuCurrency.getItems().add(item);
+            }
+            MenuItem itemusd = new MenuItem("United States Dollar");
+            itemusd.setOnAction(event -> {
+                UpdateList.updateList(listCurrency,1, multiplicity);
+                menuCurrency.setText(itemusd.getText());
             });
-            menuCurrency.getItems().add(item);
-        }
-        MenuItem itemusd = new MenuItem("United States Dollar");
-        itemusd.setOnAction(event -> {
+            menuCurrency.getItems().add(itemusd);
             UpdateList.updateList(listCurrency,1, multiplicity);
-            menuCurrency.setText(itemusd.getText());
+        } else {
+            menuCurrency.getItems().clear();
+            UpdateList.updateList(listCurrency,1,multiplicity);
+        }
+        MainControllers.ModeType.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String oldText, String newText) {
+                if(newText.equals("light")) {
+                    container.lookup(".container").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
+                } else {
+                    container.lookup(".container").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
+                }
+            }
         });
-        menuCurrency.getItems().add(itemusd);
-        UpdateList.updateList(listCurrency,1, multiplicity);
+
     }
 
     public void changeUpdate(ActionEvent actionEvent) {
