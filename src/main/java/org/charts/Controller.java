@@ -58,8 +58,16 @@ public class Controller {
             public void changed(ObservableValue<? extends String> observableValue, String oldText, String newText) {
                 if(newText.equals("light")) {
                     container.lookup(".container").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
+                    listCurrency.lookup(".listCurrency .list-cell").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
+                    scrollPane.lookup(".scrollPane").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
+                    scrollPane.lookup(".scrollPane .scroll-bar").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
+                    scrollPane.lookup(".scrollPane > .scroll-bar:vertical").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
                 } else {
                     container.lookup(".container").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
+                    listCurrency.lookup(".listCurrency .list-cell").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
+                    scrollPane.lookup(".scrollPane").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
+                    scrollPane.lookup(".scrollPane .scroll-bar").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
+                    scrollPane.lookup(".scrollPane > .scroll-bar:vertical").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
                 }
             }
         });
