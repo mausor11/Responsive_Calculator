@@ -4,19 +4,24 @@ import javafx.animation.FillTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import org.charts.Controller;
 import org.charts.UpdateList;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
+import java.util.Objects;
 
 public class MainControllers {
     public static double multiplicity = 1;
@@ -399,9 +404,6 @@ public class MainControllers {
     boolean isEquation = false;
     String firstPart;
     int whatPart = 0;
-
-
-
     enum Mode{LIGHT, DARK}
     public static Label ModeType = new Label("dark");
     Mode actualMode = Mode.DARK;
@@ -463,7 +465,7 @@ public class MainControllers {
     public Button buttonBack;
 
     @FXML
-    public void changeMode(MouseEvent event) {
+    public void changeMode(MouseEvent event) throws IOException {
         if(actualMode == Mode.DARK) {
             TranslateTransition translateTransition = new TranslateTransition(Duration.millis(100), onOffCircle);
 
@@ -497,7 +499,7 @@ public class MainControllers {
             buttonMulti.lookup(".CalcButtonEq").setStyle("-fx-background-color: #dcfcdc;; -fx-text-fill: #333333");
             buttonSqr.lookup(".CalcButtonEq").setStyle("-fx-background-color: #dcfcdc;; -fx-text-fill: #333333");
             buttonPwr.lookup(".CalcButtonEq").setStyle("-fx-background-color: #dcfcdc;; -fx-text-fill: #333333");
-
+            UpdateList.updateListLightMode(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
             fillTransition.setFromValue(Color.web("#61c28d"));
             fillTransition2.setFromValue(Color.web("#c9ecd9"));
 
@@ -545,6 +547,7 @@ public class MainControllers {
             buttonMulti.lookup(".CalcButtonEq").setStyle("-fx-background-color: #444444;; -fx-text-fill: white");
             buttonSqr.lookup(".CalcButtonEq").setStyle("-fx-background-color: #444444;; -fx-text-fill: white");
             buttonPwr.lookup(".CalcButtonEq").setStyle("-fx-background-color: #444444;; -fx-text-fill: white");
+            UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
             translateTransition.setToX(0);
             fillTransition.setFromValue(Color.web("white"));
             fillTransition2.setFromValue(Color.web("#61c28d"));

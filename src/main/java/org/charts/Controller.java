@@ -73,7 +73,6 @@ public class Controller {
         });
 
     }
-
     public void changeUpdate(ActionEvent actionEvent) {
         transitional = UpdateList.transitional;
         multiplicity = UpdateList.multiplicity;
