@@ -2,30 +2,23 @@ package org.main;
 
 import javafx.animation.FillTransition;
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
-import org.charts.Controller;
 import org.charts.UpdateList;
 
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
-import java.util.Objects;
 
 public class MainControllers {
     public static double multiplicity = 1;
-    public void zeroListener(ActionEvent actionEvent) {
+    public void zeroListener() {
         if(isEquation) {
             scoreField.setText("0");
             isEquation = false;
@@ -37,7 +30,7 @@ public class MainControllers {
             }
         }
     }
-    public void oneListener(ActionEvent actionEvent) {
+    public void oneListener() {
         if(isEquation) {
             scoreField.setText("1");
             isEquation = false;
@@ -52,7 +45,7 @@ public class MainControllers {
             }
         }
     }
-    public void twoListener(ActionEvent actionEvent) {
+    public void twoListener() {
         if(isEquation) {
             scoreField.setText("2");
             isEquation = false;
@@ -67,7 +60,7 @@ public class MainControllers {
             }
         }
     }
-    public void threeListener(ActionEvent actionEvent) {
+    public void threeListener() {
         if(isEquation) {
             scoreField.setText("3");
             isEquation = false;
@@ -82,7 +75,7 @@ public class MainControllers {
             }
         }
     }
-    public void fourListener(ActionEvent actionEvent) {
+    public void fourListener() {
         if(isEquation) {
             scoreField.setText("4");
             isEquation = false;
@@ -97,7 +90,7 @@ public class MainControllers {
             }
         }
     }
-    public void fiveListener(ActionEvent actionEvent) {
+    public void fiveListener() {
         if(isEquation) {
             scoreField.setText("5");
             isEquation = false;
@@ -112,7 +105,7 @@ public class MainControllers {
             }
         }
     }
-    public void sixListener(ActionEvent actionEvent) {
+    public void sixListener() {
         if(isEquation) {
             scoreField.setText("6");
             isEquation = false;
@@ -127,7 +120,7 @@ public class MainControllers {
             }
         }
     }
-    public void sevenListener(ActionEvent actionEvent) {
+    public void sevenListener() {
         if(isEquation) {
             scoreField.setText("7");
             isEquation = false;
@@ -142,7 +135,7 @@ public class MainControllers {
         }
         }
     }
-    public void eightListener(ActionEvent actionEvent) {
+    public void eightListener() {
         if(isEquation) {
             scoreField.setText("8");
             isEquation = false;
@@ -158,7 +151,7 @@ public class MainControllers {
         }
 
     }
-    public void nineListener(ActionEvent actionEvent) {
+    public void nineListener() {
         if(isEquation) {
             scoreField.setText("9");
             isEquation = false;
@@ -175,7 +168,7 @@ public class MainControllers {
 
 
     }
-    public void equalsListener(ActionEvent actionEvent) {
+    public void equalsListener() {
         isPlus = true;
         if(!isEquation) {
             if(whatPart == 1) {
@@ -237,27 +230,26 @@ public class MainControllers {
                     }
                 }
                 whatPart = 0;
-                isEquation = true;
             } else {
                 waitingScore.setText(scoreField.getText() + "=");
-                Double tmp = Double.parseDouble(scoreField.getText());
+                double tmp = Double.parseDouble(scoreField.getText());
                 if(tmp > 0) {
                     UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
                     UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
                 }
 
-                isEquation = true;
             }
+            isEquation = true;
         }
     }
 
-    public void cListener(ActionEvent actionEvent) {
+    public void cListener() {
         isPlus = true;
         scoreField.setText("0");
         waitingScore.setText("");
         whatPart=0;
     }
-    public void dotListener(ActionEvent actionEvent) {
+    public void dotListener() {
         if(isEquation) {
             scoreField.setText(".");
             isEquation = false;
@@ -272,7 +264,7 @@ public class MainControllers {
             }
         }
     }
-    public void backListener(ActionEvent actionEvent) {
+    public void backListener() {
         String tmp = scoreField.getText();
         if(tmp.length() > 1) {
             tmp = tmp.substring(0, scoreField.getText().length() - 1);
@@ -294,12 +286,12 @@ public class MainControllers {
 
 
     }
-    public void revListener(ActionEvent actionEvent) {
+    public void revListener() {
         isPlus = true;
         waitingScore.setText("1/" + scoreField.getText());
         double score = Double.parseDouble(scoreField.getText());
         if(score == 0) {
-            scoreField.setText("Can't devide by 0");
+            scoreField.setText("Can't divide by 0");
         } else {
             double tmp = 1/score;
             DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
@@ -314,7 +306,7 @@ public class MainControllers {
 
     }
 
-    public void plusListener(ActionEvent actionEvent) {
+    public void plusListener() {
         sign = '+';
         isEquation = true;
         isPlus = true;
@@ -325,7 +317,7 @@ public class MainControllers {
         waitingScore.setText(scoreField.getText() + sign);
     }
 
-    public void minusListener(ActionEvent actionEvent) {
+    public void minusListener() {
         sign = '-';
         isEquation = true;
         isPlus = true;
@@ -336,7 +328,7 @@ public class MainControllers {
         waitingScore.setText(scoreField.getText() + sign);
     }
 
-    public void multiListener(ActionEvent actionEvent) {
+    public void multiListener() {
         sign = '*';
         isEquation = true;
         isPlus = true;
@@ -346,7 +338,7 @@ public class MainControllers {
         firstPart = scoreField.getText();
         waitingScore.setText(scoreField.getText() + sign);
     }
-    public void powerListener(ActionEvent actionEvent) {
+    public void powerListener() {
         waitingScore.setText(scoreField.getText() + "²");
         double score = Double.parseDouble(scoreField.getText());
         double tmp = Math.pow(score,2);
@@ -360,7 +352,7 @@ public class MainControllers {
         }
 
     }
-    public void sqrListener(ActionEvent actionEvent) {
+    public void sqrListener() {
         waitingScore.setText("√(" + scoreField.getText() + ")");
         double score = Double.parseDouble(scoreField.getText());
         double tmp = Math.sqrt(score);
@@ -374,7 +366,7 @@ public class MainControllers {
         }
     }
 
-    public void divideListener(ActionEvent actionEvent) {
+    public void divideListener() {
         sign = '÷';
         isEquation = true;
         isPlus = true;
@@ -384,7 +376,7 @@ public class MainControllers {
         firstPart = scoreField.getText();
         waitingScore.setText(scoreField.getText() + sign);
     }
-    public void changeListener(ActionEvent actionEvent) {
+    public void changeListener() {
         if(isPlus) {
             if(!scoreField.getText().equals("0")) {
                 scoreField.setText("-" + scoreField.getText());
@@ -465,9 +457,9 @@ public class MainControllers {
     public Button buttonBack;
 
     @FXML
-    public void changeMode(MouseEvent event) throws IOException {
+    public void changeMode() {
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(100), onOffCircle);
         if(actualMode == Mode.DARK) {
-            TranslateTransition translateTransition = new TranslateTransition(Duration.millis(100), onOffCircle);
 
             FillTransition fillTransition = new FillTransition(Duration.millis(100), onOffSwitch);
             FillTransition fillTransition2 = new FillTransition(Duration.millis(100), onOffCircle);
@@ -516,7 +508,6 @@ public class MainControllers {
             fillTransition2.play();
             actualMode = Mode.LIGHT;
         } else {
-            TranslateTransition translateTransition = new TranslateTransition(Duration.millis(100), onOffCircle);
             MainControllers.ModeType.setText("dark");
 
             FillTransition fillTransition = new FillTransition(Duration.millis(100), onOffSwitch);
