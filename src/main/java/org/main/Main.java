@@ -16,7 +16,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch();
     }
-    private Stage stage = StageInstance.getStage();
     private HBox hbox = new HBox();
     @Override
     public void start(Stage stage) throws IOException {

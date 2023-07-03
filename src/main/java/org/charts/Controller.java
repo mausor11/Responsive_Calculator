@@ -1,8 +1,5 @@
 package org.charts;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -52,27 +49,24 @@ public class Controller {
             menuCurrency.getItems().clear();
             UpdateList.updateList(listCurrency,1,multiplicity);
         }
-        MainControllers.ModeType.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String oldText, String newText) {
-                if(newText.equals("light")) {
-                    container.lookup(".container").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
-                    listCurrency.lookup(".listCurrency .list-cell").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
-                    scrollPane.lookup(".scrollPane").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
-                    scrollPane.lookup(".scrollPane .scroll-bar").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
-                    scrollPane.lookup(".scrollPane > .scroll-bar:vertical").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
-                } else {
-                    container.lookup(".container").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
-                    listCurrency.lookup(".listCurrency .list-cell").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
-                    scrollPane.lookup(".scrollPane").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
-                    scrollPane.lookup(".scrollPane .scroll-bar").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
-                    scrollPane.lookup(".scrollPane > .scroll-bar:vertical").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
-                }
+        MainControllers.ModeType.textProperty().addListener((observableValue, oldText, newText) -> {
+            if(newText.equals("light")) {
+                container.lookup(".container").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
+                listCurrency.lookup(".listCurrency .list-cell").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
+                scrollPane.lookup(".scrollPane").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
+                scrollPane.lookup(".scrollPane .scroll-bar").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
+                scrollPane.lookup(".scrollPane > .scroll-bar:vertical").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
+            } else {
+                container.lookup(".container").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
+                listCurrency.lookup(".listCurrency .list-cell").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
+                scrollPane.lookup(".scrollPane").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
+                scrollPane.lookup(".scrollPane .scroll-bar").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
+                scrollPane.lookup(".scrollPane > .scroll-bar:vertical").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
             }
         });
 
     }
-    public void changeUpdate(ActionEvent actionEvent) {
+    public void changeUpdate() {
         transitional = UpdateList.transitional;
         multiplicity = UpdateList.multiplicity;
         ZonedDateTime zonedDateTime = ZonedDateTime.now();
