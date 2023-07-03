@@ -3,6 +3,7 @@ package org.charts;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import org.main.Main;
 import org.main.MainControllers;
 
 import java.time.ZonedDateTime;
@@ -50,19 +51,18 @@ public class Controller {
             UpdateList.updateList(listCurrency,1,multiplicity);
         }
         MainControllers.ModeType.textProperty().addListener((observableValue, oldText, newText) -> {
-            if(newText.equals("light")) {
-                container.lookup(".container").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
-                listCurrency.lookup(".listCurrency .list-cell").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
-                scrollPane.lookup(".scrollPane").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
-                scrollPane.lookup(".scrollPane .scroll-bar").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
-                scrollPane.lookup(".scrollPane > .scroll-bar:vertical").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
-            } else {
-                container.lookup(".container").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
-                listCurrency.lookup(".listCurrency .list-cell").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
-                scrollPane.lookup(".scrollPane").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
-                scrollPane.lookup(".scrollPane .scroll-bar").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
-                scrollPane.lookup(".scrollPane > .scroll-bar:vertical").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
-            }
+                if(newText.equals("light")) {
+                    container.lookup(".container").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
+                    scrollPane.lookup(".scrollPane").setStyle("-fx-background-color: #d1e8db; -fx-text-fill: #333333");
+                    menuCurrency.setStyle("-fx-text-fill: black");
+                } else {
+                    container.lookup(".container").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
+                    scrollPane.lookup(".scrollPane").setStyle("-fx-background-color: #222222; -fx-text-fill: white");
+                    menuCurrency.setStyle("-fx-text-fill: white");
+
+                }
+
+
         });
 
     }

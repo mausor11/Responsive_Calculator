@@ -60,15 +60,39 @@
     -fx-border-color: #111111;
     -fx-border-width: 1;
 }
+.listCurrencyLight .list-cell{
+    -fx-background-color: #e8ffe8;
+    -fx-border-color: #61c28d;
+    -fx-border-width: 1;
+}
 .scrollPane {
     -fx-background-color: #222222;
 }
 .scrollPane .scroll-bar {
-    -fx-background-color: #222222;
+    -fx-background-color: #61c28d;
 }
-.scrollPane > .scroll-bar:vertical {
-    -fx-background-color: red;
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color :transparent;
+    -fx-border-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-border-radius :2.0em;
 }
+
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow{
+    -fx-shape : " ";
+    -fx-padding :0.0 0.15em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color : #306448;
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+
 .menuButton {
     -fx-background-color: transparent;
     -fx-border-color: #61c28d;

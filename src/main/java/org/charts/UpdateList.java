@@ -16,6 +16,9 @@ public class UpdateList {
     public static double transitional;
     public static Map<String, String> currency;
     public static ListView<Object> updateList(ListView<Object> listCurrency, double transitional, double muliplicity) {
+        listCurrency.getStyleClass().clear();
+        listCurrency.getStyleClass().add("listCurrency");
+
         Map<String, String> currency = Currency.getCurrencyTable();
         UpdateList.currency = currency;
         if(currency != null) {
@@ -56,6 +59,7 @@ public class UpdateList {
             UpdateList.multiplicity = multiplicity;
             UpdateList.instance = listCurrency;
             UpdateList.transitional = transitional;
+
         } else {
             listCurrency.getItems().clear();
             Label label = new Label("No connection");
@@ -64,6 +68,7 @@ public class UpdateList {
             label.setStyle("-fx-text-fill:  #61c28d; -fx-font-weight: bold");
             listCurrency.getItems().add(label);
         }
+
         return listCurrency;
     }
     public static ListView<Object> updateListLightMode(ListView<Object> listCurrency, double transitional, double muliplicity) {
@@ -104,6 +109,8 @@ public class UpdateList {
                 label1.setStyle("-fx-text-fill:  #222222; -fx-font-size: 15");
                 label1.setPrefWidth(80);
                 hbox.getChildren().addAll(label, label1);
+//                listCurrency.lookup(".listCurrency .list-cell").setStyle("-fx-background-color: #e8ffe8");
+                listCurrency.getStyleClass().add("listCurrencyLight");
                 listCurrency.getItems().add(hbox);
             }
             listCurrency.setStyle("-fx-background-color: #e8ffe8");

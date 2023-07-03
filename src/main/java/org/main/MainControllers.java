@@ -182,7 +182,12 @@ public class MainControllers {
                     scoreField.setText(df.format(q) + "");
                     if(q > 0) {
                         UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
+                        if(MainControllers.ModeType.getText().equals("dark")) {
                         UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                    } else {
+                        UpdateList.updateListLightMode(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+
+                    }
                     }
 
                 } else if(sign == '-') {
@@ -194,7 +199,12 @@ public class MainControllers {
                     scoreField.setText(df.format(q) + "");
                     if(q > 0) {
                         UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
+                        if(MainControllers.ModeType.getText().equals("dark")) {
                         UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                    } else {
+                        UpdateList.updateListLightMode(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+
+                    }
                     }
 
                 } else if(sign == '*') {
@@ -206,7 +216,12 @@ public class MainControllers {
                     scoreField.setText(df.format(q) + "");
                     if(q > 0) {
                         UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
+                        if(MainControllers.ModeType.getText().equals("dark")) {
                         UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                    } else {
+                        UpdateList.updateListLightMode(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+
+                    }
                     }
 
 
@@ -221,7 +236,12 @@ public class MainControllers {
                         scoreField.setText(df.format(q) + "");
                         if(q > 0) {
                             UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
-                            UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                            if(MainControllers.ModeType.getText().equals("dark")) {
+                        UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                    } else {
+                        UpdateList.updateListLightMode(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+
+                    }
                         }
 
 
@@ -235,7 +255,12 @@ public class MainControllers {
                 double tmp = Double.parseDouble(scoreField.getText());
                 if(tmp > 0) {
                     UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
-                    UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                    if(MainControllers.ModeType.getText().equals("dark")) {
+                        UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                    } else {
+                        UpdateList.updateListLightMode(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+
+                    }
                 }
 
             }
@@ -281,7 +306,12 @@ public class MainControllers {
         double t = Double.parseDouble(scoreField.getText());
         if(t > 0 ) {
             UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
-            UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+            if(MainControllers.ModeType.getText().equals("dark")) {
+                UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+            } else {
+                UpdateList.updateListLightMode(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+
+            }
         }
 
 
@@ -299,7 +329,12 @@ public class MainControllers {
             scoreField.setText(df.format(tmp) + "");
             if(tmp > 0) {
                 UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
-                UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                if(MainControllers.ModeType.getText().equals("dark")) {
+                    UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+                } else {
+                    UpdateList.updateListLightMode(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+
+                }
             }
         }
 
@@ -348,7 +383,12 @@ public class MainControllers {
         scoreField.setText(df.format(tmp) + "");
         if(tmp > 0) {
             UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
-            UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+            if(MainControllers.ModeType.getText().equals("dark")) {
+                UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+            } else {
+                UpdateList.updateListLightMode(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+
+            }
         }
 
     }
@@ -362,7 +402,12 @@ public class MainControllers {
         scoreField.setText(df.format(tmp) + "");
         if(tmp > 0) {
             UpdateList.multiplicity = Double.parseDouble(scoreField.getText());
-            UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+            if(MainControllers.ModeType.getText().equals("dark")) {
+                UpdateList.updateList(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+            } else {
+                UpdateList.updateListLightMode(UpdateList.instance, UpdateList.transitional, UpdateList.multiplicity);
+
+            }
         }
     }
 
