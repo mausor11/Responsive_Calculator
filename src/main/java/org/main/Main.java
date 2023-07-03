@@ -5,7 +5,6 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -18,8 +17,6 @@ public class Main extends Application {
         launch();
     }
     public static boolean isWide = false;
-    enum Mode{LIGHT, DARK}
-    public static Mode mode = Mode.DARK;
     private Scene scene;
     private Scene scene1;
     private HBox hbox = new HBox();

@@ -15,7 +15,7 @@ public class UpdateList {
     public static ListView<Object> instance;
     public static double transitional;
     public static Map<String, String> currency;
-    public static ListView<Object> updateList(ListView<Object> listCurrency, double transitional, double muliplicity) {
+    public static void updateList(ListView<Object> listCurrency, double transitional, double muliplicity) {
         listCurrency.getStyleClass().clear();
         listCurrency.getStyleClass().add("listCurrency");
 
@@ -68,10 +68,8 @@ public class UpdateList {
             label.setStyle("-fx-text-fill:  #61c28d; -fx-font-weight: bold");
             listCurrency.getItems().add(label);
         }
-
-        return listCurrency;
     }
-    public static ListView<Object> updateListLightMode(ListView<Object> listCurrency, double transitional, double muliplicity) {
+    public static void updateListLightMode(ListView<Object> listCurrency, double transitional, double muliplicity) {
         Map<String, String> currency = Currency.getCurrencyTable();
         UpdateList.currency = currency;
         if(currency != null) {
@@ -125,7 +123,6 @@ public class UpdateList {
             label.setStyle("-fx-text-fill:  #61c28d; -fx-font-weight: bold");
             listCurrency.getItems().add(label);
         }
-        return listCurrency;
     }
 
 
